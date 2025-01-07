@@ -1,0 +1,17 @@
+.vercel
+.requestradarenv
+#ngrok http --domain=winning-penguin-splendid.ngrok-free.app 8000 
+# https://winning-penguin-splendid.ngrok-free.app
+app/__pycache__
+app/routes/__pycache__
+files/identity_files
+files/customers_profile
+uploaded_files
+alembic/__pycache__
+app/functions/__pycache__
+alembic/versions/__pycache__
+
+.env
+.vscode
+alembic.ini
+files/product_files
