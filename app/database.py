@@ -10,9 +10,8 @@ import os
 load_dotenv()
 
 
-SQLALCHEMY_DATABASE_URL="postgresql://default:Yq5hfFJN0mEK@ep-shiny-cell-91515215.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require"
-#os.getenv("SQLALCHEMY_DATABASE_URL")
-
+SQLALCHEMY_DATABASE_URL=os.getenv("SQLALCHEMY_DATABASE_URL")
+#"postgresql://default:Yq5hfFJN0mEK@ep-shiny-cell-91515215.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require"
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)

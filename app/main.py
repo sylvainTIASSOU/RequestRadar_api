@@ -49,10 +49,6 @@ app.include_router(analytics.router)
 app.include_router(rate_limit.router)
 
 
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
-
 
 
 

@@ -59,7 +59,7 @@ def start_mock_requests(background_tasks: BackgroundTasks, db: Session = Depends
     return {"message": "Mock requests started in background"}
 
 
-
+# endpoint pour arrêter la simulation
 @router.get("/stop")
 def stop_mock_requests(db: Session = Depends(get_db), current_user: int = Depends(oauth.get_current_user)):
     user_id = str(current_user.id)
@@ -70,6 +70,8 @@ def stop_mock_requests(db: Session = Depends(get_db), current_user: int = Depend
     else:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Mock requests not found")
     
+    
+# endpoint pour obtenir les métriques
 @router.get("/metrics")
 def get_mock_metrics(db: Session = Depends(get_db), current_user: int = Depends(oauth.get_current_user)):
    

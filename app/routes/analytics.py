@@ -68,19 +68,7 @@ def get_top_endpoints(metrics):
 # WebSocket pour envoyer des données en temps réel
 @router.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket, db: Session = Depends(get_db)):
-    #  # Récupérer le token depuis l'en-tête Authorization
-    # token = websocket.headers.get("Authorization")
-    # if token is None:
-    #     raise HTTPException(status_code=401, detail="Token is missing")
-    
-    # # Assurez-vous de retirer le préfixe "Bearer "
-    # token = token.replace("Bearer ", "")
-    
-    # # Vérifier le token et obtenir l'utilisateur
-    # current_user = await oauth.get_current_user(token)  # Fonction pour valider le token et récupérer l'utilisateur
-    # if current_user is None:
-    #     raise HTTPException(status_code=401, detail="Invalid token")
-    
+
     
     await websocket.accept()  # Accepter la connexion WebSocket
 
@@ -108,7 +96,7 @@ async def websocket_endpoint(websocket: WebSocket, db: Session = Depends(get_db)
             # Envoyer les données au client
             await websocket.send_json(data)
 
-            # Attendre 1 seconde avant de renvoyer les données (vous pouvez ajuster cet intervalle)
+            # Attendre 1 seconde avant de renvoyer les données suivantes
             await asyncio.sleep(1)
 
         except WebSocketDisconnect:
