@@ -24,8 +24,20 @@ app = FastAPI(
         },
         {
             "name": "Login",
-            "description": "Operations about login",
+            "description": "Endpoint pour l'authentification des utilisateurs",
         },
+        {
+            "name": "Mock",
+            "description": "Endpoint pour lancer la simulation et la recolte des requettes qui s'execute en arriere plan",
+        },
+        
+        {
+             "name": "metric",
+            "description": "Operations about metrics",
+        }
+           
+        
+        
     ]
 )
 #desactier le docs en production

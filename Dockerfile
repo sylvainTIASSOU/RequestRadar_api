@@ -9,24 +9,12 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     PIP_DEFAULT_TIMEOUT=100 \
     DOTENV_PATH=/app/.env
 
-# Installez les dépendances système nécessaires pour dlib et face-recognition
+# Installez les dépendances système nécessaires (uniquement si elles sont réellement nécessaires)
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential \
-    libopenblas-dev \
-    liblapack-dev \
-    libx11-dev \
-    libgtk2.0-dev \
-    libboost-python-dev \
-    libboost-thread-dev \
     locales \
     && echo "fr_FR.UTF-8 UTF-8" > /etc/locale.gen \
     && locale-gen fr_FR.UTF-8 \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
-
-# Définissez les variables d'environnement pour la locale
-ENV LANG=fr_FR.UTF-8 \
-    LANGUAGE=fr_FR:fr \
-    LC_ALL=fr_FR.UTF-8
 
 # Définir le répertoire de travail
 WORKDIR /app
